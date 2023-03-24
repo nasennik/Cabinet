@@ -1,4 +1,4 @@
-package com.example.cabinet.exeption;
+package com.example.cabinet.exception;
 
 public class RepositoryException extends Exception{
     public RepositoryException() {

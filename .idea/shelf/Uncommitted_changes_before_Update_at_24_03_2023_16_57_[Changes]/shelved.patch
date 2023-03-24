@@ -1,0 +1,662 @@
+Index: src/main/java/com/example/cabinet/filter/RoleFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.cabinet.filter;\r\n\r\npublic class RoleFilter {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/cabinet/filter/RoleFilter.java b/src/main/java/com/example/cabinet/filter/RoleFilter.java
+--- a/src/main/java/com/example/cabinet/filter/RoleFilter.java	(revision 427ee673dc9653822dc8f6dfcfe66d57b7d7f653)
++++ b/src/main/java/com/example/cabinet/filter/RoleFilter.java	(date 1679665912916)
+@@ -1,4 +1,40 @@
+ package com.example.cabinet.filter;
+ 
+-public class RoleFilter {
+-}
++
++import javax.servlet.Filter;
++import javax.servlet.FilterChain;
++import javax.servlet.ServletException;
++import javax.servlet.ServletRequest;
++import javax.servlet.ServletResponse;
++import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
++import java.io.IOException;
++
++public class RoleFilter implements Filter {
++    @Override
++    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
++        final HttpServletRequest req = (HttpServletRequest) request;
++        final String commandName = req.getParameter("command");
++        if (currentUserHasPermissionForCommand(commandName, req)) {
++            chain.doFilter(request, response);
++        } else {
++            ((HttpServletResponse) response).sendRedirect("/Cabinet-1.0-SNAPSHOT/controller?command=error");
++        }
++    }
++
++    private boolean currentUserHasPermissionForCommand(String commandName, HttpServletRequest request) {
++        return definePermissionForCommand(sessionIsExist(request),commandName);
++    }
++
++    private boolean sessionIsExist(HttpServletRequest request) {
++        return request.getSession(false)!=null && request.getSession(false).getAttribute("person")!=null;
++    }
++
++    private boolean definePermissionForCommand(boolean sessionIsExist, String commandName) {
++        if(sessionIsExist){
++            return commandName == null || (!commandName.equals("login") && !commandName.equals("logincmnd"));
++        }else {
++            return commandName == null || (commandName.equals("login") || commandName.equals("logincmnd") || (commandName.equals("registration") || commandName.equals("registrationcmnd") || commandName.equals("error")));
++        }
++    }
++}
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1679344662286)
++++ b/.idea/vcs.xml	(date 1679344662286)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1679344732046)
++++ b/.idea/misc.xml	(date 1679344732046)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="FrameworkDetectionExcludesConfiguration">
++    <file type="web" url="file://$PROJECT_DIR$" />
++  </component>
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/example/cabinet/exeption/ServiceError.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/cabinet/exeption/ServiceError.java b/src/main/java/com/example/cabinet/exception/ServiceError.java
+rename from src/main/java/com/example/cabinet/exeption/ServiceError.java
+rename to src/main/java/com/example/cabinet/exception/ServiceError.java
+--- a/src/main/java/com/example/cabinet/exeption/ServiceError.java	(revision 427ee673dc9653822dc8f6dfcfe66d57b7d7f653)
++++ b/src/main/java/com/example/cabinet/exception/ServiceError.java	(date 1679666127498)
+@@ -1,6 +1,6 @@
+-package com.example.cabinet.exeption;
++package com.example.cabinet.exception;
+ 
+-public class ServiceError extends Error{
++public class ServiceError extends Error {
+     public ServiceError() {
+     }
+ 
+Index: src/main/java/com/example/cabinet/exeption/RepositoryException.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/cabinet/exeption/RepositoryException.java b/src/main/java/com/example/cabinet/exception/RepositoryException.java
+rename from src/main/java/com/example/cabinet/exeption/RepositoryException.java
+rename to src/main/java/com/example/cabinet/exception/RepositoryException.java
+--- a/src/main/java/com/example/cabinet/exeption/RepositoryException.java	(revision 427ee673dc9653822dc8f6dfcfe66d57b7d7f653)
++++ b/src/main/java/com/example/cabinet/exception/RepositoryException.java	(date 1679666127206)
+@@ -1,6 +1,6 @@
+-package com.example.cabinet.exeption;
++package com.example.cabinet.exception;
+ 
+-public class RepositoryException extends Exception{
++public class RepositoryException extends Exception {
+     public RepositoryException() {
+     }
+ 
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1679348243288)
++++ b/.idea/uiDesigner.xml	(date 1679348243288)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1679665913029)
++++ b/.idea/workspace.xml	(date 1679665913029)
+@@ -0,0 +1,379 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ArtifactsWorkspaceSettings">
++    <artifacts-to-build>
++      <artifact name="Cabinet:war exploded" />
++    </artifacts-to-build>
++  </component>
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="complete user part">
++      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/sql/project1.sql" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Cache.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Command.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/PagePath.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ServiceLocator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowCabinetPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowCabinetPageCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowErrorJspPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowErrorJspPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowLoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowLoginPageCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowRegistrationPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowRegistrationPageCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/RequestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/RequestFactory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/entity/Book.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/entity/Person.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/RepositoryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/RepositoryException.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/ServiceError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/ServiceError.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/PersonRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/SimplePersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/SimplePersonRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/sessionfactory/HibernateSessionFactoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/repository/sessionfactory/HibernateSessionFactoryUtil.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/security/BcryptWithSaltHasherImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/security/BcryptWithSaltHasherImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/log.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cab.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cab.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Jsp File" />
++        <option value="Class" />
++        <option value="JUnit5 Test Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="LogFilters">
++    <option name="FILTER_ERRORS" value="false" />
++    <option name="FILTER_WARNINGS" value="false" />
++    <option name="FILTER_INFO" value="true" />
++    <option name="FILTER_DEBUG" value="true" />
++    <option name="CUSTOM_FILTER" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="MavenImportPreferences">
++    <option name="importingSettings">
++      <MavenImportingSettings>
++        <option name="workspaceImportEnabled" value="true" />
++      </MavenImportingSettings>
++    </option>
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectId" id="2NIHQ4afB6mfXTCH7pTj67fKE5A" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/Innowise/Cabinet/src/test/resources&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.deploy.options&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  },
++  &quot;keyToStringList&quot;: {
++    &quot;DatabaseDriversLRU&quot;: [
++      &quot;postgresql&quot;
++    ]
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="com.example.cabinet.command" />
++      <recent name="com.example.cabinet.controller" />
++    </key>
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="D:\Innowise\Cabinet\src\test\resources" />
++    </key>
++    <key name="CreateTestDialog.Recents.Supers">
++      <recent name="" />
++    </key>
++    <key name="CreateTestDialog.RecentsKey">
++      <recent name="com.example.cabinet.command" />
++    </key>
++  </component>
++  <component name="RunManager" selected="TomEE Server.TomEE 9.0.711">
++    <configuration name="LogoutCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="Cabinet" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.example.cabinet.command.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.example.cabinet.command" />
++      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.command.LogoutCommandTest" />
++      <option name="METHOD_NAME" value="" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="LogoutCommandTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="Cabinet" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.example.cabinet.command.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.example.cabinet.command" />
++      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.command.LogoutCommandTest" />
++      <option name="METHOD_NAME" value="test" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="TomEE 9.0.711" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 9.0.711" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
++      <option name="UPDATING_POLICY" value="restart-server" />
++      <deployment>
++        <artifact name="Cabinet:war exploded">
++          <settings>
++            <option name="CONTEXT_PATH" value="" />
++          </settings>
++        </artifact>
++      </deployment>
++      <server-settings>
++        <option name="BASE_DIRECTORY_NAME" value="d87a5829-e6e1-43ce-8184-dca26c253dcb" />
++      </server-settings>
++      <predefined_log_file enabled="true" id="Tomcat" />
++      <predefined_log_file enabled="true" id="Tomcat Catalina" />
++      <predefined_log_file id="Tomcat Manager" />
++      <predefined_log_file id="Tomcat Host Manager" />
++      <predefined_log_file id="Tomcat Localhost Access" />
++      <RunnerSettings RunnerId="Debug">
++        <option name="DEBUG_PORT" value="63122" />
++      </RunnerSettings>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <method v="2">
++        <option name="Make" enabled="true" />
++        <option name="BuildArtifacts" enabled="true">
++          <artifact name="Cabinet:war exploded" />
++        </option>
++      </method>
++    </configuration>
++    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
++      <deployment />
++      <server-settings />
++      <predefined_log_file enabled="true" id="Tomcat" />
++      <predefined_log_file enabled="true" id="Tomcat Catalina" />
++      <predefined_log_file id="Tomcat Manager" />
++      <predefined_log_file id="Tomcat Host Manager" />
++      <predefined_log_file id="Tomcat Localhost Access" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <list>
++      <item itemvalue="JUnit.LogoutCommandTest" />
++      <item itemvalue="JUnit.LogoutCommandTest.test" />
++      <item itemvalue="TomEE Server.TomEE 9.0.711" />
++    </list>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JUnit.LogoutCommandTest" />
++        <item itemvalue="JUnit.LogoutCommandTest.test" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="" />
++      <created>1679344660498</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1679344660498</updated>
++      <workItem from="1679344661635" duration="9052000" />
++      <workItem from="1679387053335" duration="21413000" />
++      <workItem from="1679484332420" duration="1682000" />
++      <workItem from="1679569356730" duration="15330000" />
++      <workItem from="1679665538311" duration="375000" />
++    </task>
++    <task id="LOCAL-00001" summary="complete user part">
++      <created>1679406298518</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1679406298518</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="complete user part" />
++    <option name="LAST_COMMIT_MESSAGE" value="complete user part" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <breakpoint enabled="true" type="java-exception">
++          <properties class="org.hibernate.exception.SQLGrammarException" package="org.hibernate.exception" />
++          <option name="timeStamp" value="1" />
++        </breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>77</line>
++          <option name="timeStamp" value="5" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>78</line>
++          <option name="timeStamp" value="6" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>79</line>
++          <option name="timeStamp" value="7" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>80</line>
++          <option name="timeStamp" value="8" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>82</line>
++          <option name="timeStamp" value="9" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>83</line>
++          <option name="timeStamp" value="10" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>84</line>
++          <option name="timeStamp" value="11" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>86</line>
++          <option name="timeStamp" value="12" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java</url>
++          <line>87</line>
++          <option name="timeStamp" value="13" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
++</project>
+\ No newline at end of file

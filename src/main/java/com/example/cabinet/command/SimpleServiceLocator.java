@@ -29,7 +29,6 @@ public class SimpleServiceLocator implements ServiceLocator {
     public Command getCommand(String commandName) {
         System.out.println("Command name is " + commandName);
       final Optional<Command> commandFromCache = CACHE.getCommand(commandName);
-       // final Optional<Command> commandFromCache = Optional.empty();
         if (commandName == null) {
             commandName = "login";
         }
