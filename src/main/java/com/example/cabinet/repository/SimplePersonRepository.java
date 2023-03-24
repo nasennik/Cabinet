@@ -1,7 +1,7 @@
 package com.example.cabinet.repository;
 
 import com.example.cabinet.entity.Person;
-import com.example.cabinet.exeption.RepositoryException;
+import com.example.cabinet.exception.RepositoryException;
 import com.example.cabinet.repository.sessionfactory.HibernateSessionFactoryUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,19 +10,18 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import javax.ejb.EJB;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.ejb.Stateful;
-import java.util.Collections;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
+@Stateless
 public class SimplePersonRepository implements PersonRepository {
 
-    private final HibernateSessionFactoryUtil hibernateSessionFactoryUtil;
+    @Inject
+    private HibernateSessionFactoryUtil hibernateSessionFactoryUtil;
 
     @Override
     public Optional<Person> getById(int id) throws RepositoryException {
@@ -72,7 +71,7 @@ public class SimplePersonRepository implements PersonRepository {
     public Optional<Person> getByLogin(String login) throws RepositoryException {
         try (Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Query<Person> query = session.createQuery("select id, name , yearOfBirth, login, password from Person  where login = :userlogin");
-            query.setParameter("userlogin",login);
+            query.setParameter("userlogin", login);
             List<Person> people = query.getResultList();
 
             return Optional.empty();

@@ -2,12 +2,14 @@ package com.example.cabinet.controller;
 
 import com.example.cabinet.command.CommandRequest;
 import com.example.cabinet.command.CommandResponse;
+import lombok.RequiredArgsConstructor;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
+import javax.inject.Singleton;
 import javax.servlet.http.HttpServletRequest;
+
+
 @Singleton
-@LocalBean
 public class SimpleRequestFactory implements RequestFactory {
     @Override
     public CommandRequest createRequest(HttpServletRequest request) {
@@ -21,6 +23,6 @@ public class SimpleRequestFactory implements RequestFactory {
 
     @Override
     public CommandResponse createRedirectResponse(String path) {
-        return new PlainCommandResponse(true,path);
+        return new PlainCommandResponse(true, path);
     }
 }

@@ -1,13 +1,15 @@
 package com.example.cabinet.repository;
 
 import com.example.cabinet.entity.Person;
-import com.example.cabinet.exeption.RepositoryException;
+import com.example.cabinet.exception.RepositoryException;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Local
 public interface PersonRepository {
     Optional<Person> getById(int id) throws RepositoryException;
+
     boolean add(Person person) throws RepositoryException;
 
     void update(Person person) throws RepositoryException;

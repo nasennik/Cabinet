@@ -3,9 +3,11 @@ package com.example.cabinet.security;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mindrot.jbcrypt.BCrypt;
-import javax.ejb.Singleton;
+
+import javax.ejb.Stateless;
 
 @Slf4j
+@Stateless
 public class BcryptWithSaltHasherImpl implements PasswordHasher {
     private static final String SALT = BCrypt.gensalt();
 

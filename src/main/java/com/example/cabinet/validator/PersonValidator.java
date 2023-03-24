@@ -1,12 +1,14 @@
 package com.example.cabinet.validator;
 
-import javax.ejb.Singleton;
 
-@Singleton
+import javax.ejb.Stateless;
+
+@Stateless
 public class PersonValidator {
     public boolean validate(String login, String password) {
         return login != null || password != null;
     }
+
     public boolean validate(String password) {
         return password != null;
     }

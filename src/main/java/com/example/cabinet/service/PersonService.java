@@ -5,7 +5,8 @@ import com.example.cabinet.entity.Person;
 
 import java.util.Optional;
 
-    public interface PersonService {
+
+public interface PersonService {
     Optional<Person> login(String login, String password);
 
     boolean registration(String name, String yearOfBirth, String login, String password);

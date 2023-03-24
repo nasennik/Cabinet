@@ -5,10 +5,10 @@ import com.example.cabinet.command.Command;
 import com.example.cabinet.command.CommandRequest;
 import com.example.cabinet.command.CommandResponse;
 import com.example.cabinet.command.SimpleServiceLocator;
-import com.example.cabinet.exeption.ServiceError;
+import com.example.cabinet.exception.ServiceError;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,9 +22,9 @@ import java.io.IOException;
 @Slf4j
 public class Controller extends HttpServlet {
     private static final String COMMAND_NAME_PARAM = "command";
-    @EJB
+    @Inject
     private SimpleRequestFactory requestFactory;
-    @EJB
+    @Inject
     private SimpleServiceLocator serviceLocator;
 
 

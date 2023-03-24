@@ -2,7 +2,6 @@ package com.example.cabinet.command;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Optional;
@@ -27,9 +26,9 @@ public interface CommandRequest {
 
     String getURI();
 
-    Part getPart(String name) throws ServletException, IOException;
+    //Part getPart(String name) throws ServletException, IOException;
 
-    ServletContext getServletContext();
+   // ServletContext getServletContext();
 
-    Collection<Part> getParts() throws ServletException, IOException;
+   // Collection<Part> getParts() throws ServletException, IOException;
 }

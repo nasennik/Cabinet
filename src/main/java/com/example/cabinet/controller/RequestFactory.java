@@ -6,7 +6,7 @@ import com.example.cabinet.command.CommandResponse;
 
 import javax.ejb.Local;
 import javax.servlet.http.HttpServletRequest;
-@Local
+
 public interface RequestFactory {
 
     CommandRequest createRequest(HttpServletRequest request);

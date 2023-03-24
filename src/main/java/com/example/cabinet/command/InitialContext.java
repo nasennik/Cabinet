@@ -2,55 +2,97 @@ package com.example.cabinet.command;
 
 import com.example.cabinet.controller.SimpleRequestFactory;
 import com.example.cabinet.repository.PersonRepository;
-import com.example.cabinet.repository.SimplePersonRepository;
 import com.example.cabinet.repository.sessionfactory.HibernateSessionFactoryUtil;
-import com.example.cabinet.security.BcryptWithSaltHasherImpl;
 import com.example.cabinet.security.PasswordHasher;
 import com.example.cabinet.service.PersonService;
-import com.example.cabinet.service.SimplePersonService;
 import com.example.cabinet.validator.PersonValidator;
+import jdk.jshell.spi.SPIResolutionException;
+import lombok.Data;
 
-import javax.ejb.Singleton;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
+@Data
 public class InitialContext {
 
-    private final SimpleRequestFactory simpleRequestFactory = new SimpleRequestFactory();
-    private final HibernateSessionFactoryUtil hibernateSessionFactoryUtil = new HibernateSessionFactoryUtil();
-    private final PersonRepository personRepository = new SimplePersonRepository(hibernateSessionFactoryUtil);
-    private final PasswordHasher passwordHasher = new BcryptWithSaltHasherImpl();
-    private final PersonValidator personValidator = new PersonValidator();
-    private final PersonService personService = new SimplePersonService(personValidator, passwordHasher, personRepository);
+    public InitialContext(){
+        System.out.println("Initial context was created");
+    }
+
+    @Inject
+    private SimpleRequestFactory simpleRequestFactory;// = new SimpleRequestFactory();
+
+    @Inject
+    private HibernateSessionFactoryUtil hibernateSessionFactoryUtil;
+
+    @Inject
+    private PersonRepository personRepository;
+
+    @Inject
+    private PasswordHasher passwordHasher;
+
+    @Inject
+    private PersonValidator personValidator;
+
+    @Inject
+    private PersonService personService;
+
+    @Inject
+    private ShowLoginPageCommand showLoginPageCommand;
+
+    @Inject
+    private ShowRegistrationPageCommand registrationPageCommand;
+
+    @Inject
+    private LoginCommand loginCommand;
+    @Inject
+    private RegistrationCommand registrationCommand;
+
+    @Inject
+    private LogoutCommand logoutCommand;
+
+    @Inject
+    private ShowCabinetPageCommand showCabinetPageCommand;
+    @Inject
+    private ShowErrorJspPage showErrorJspPage;
+
+    @Inject
+    private UpdatePersonCommand updatePersonCommand;
+
+
+
 
     public Command lookup(String commandName) {
 
         switch (commandName) {
             case "login": {
-                return new ShowLoginPageCommand(simpleRequestFactory);
+                return showLoginPageCommand;
             }
             case "registration": {
-                return new ShowRegistrationPageCommand(simpleRequestFactory);
+                return registrationPageCommand;
             }
             case "logincmnd": {
-                return new LoginCommand(simpleRequestFactory, personService);
+                return loginCommand;
             }
             case "registrationcmnd": {
-                return new RegistrationCommand(simpleRequestFactory, personService);
+                return registrationCommand;
             }
             case "logout": {
-                return new LogoutCommand(simpleRequestFactory);
+                return logoutCommand;
             }
             case "cab": {
-                return new ShowCabinetPageCommand(simpleRequestFactory, personService);
+                return showCabinetPageCommand;
             }
             case "error": {
-                return new ShowErrorJspPage(simpleRequestFactory);
+                return showErrorJspPage;
             }
             case "updatePerson": {
-                return new UpdatePersonCommand(simpleRequestFactory, personService);
+                return updatePersonCommand;
             }
             default: {
-                return new ShowLoginPageCommand(simpleRequestFactory);
+                return showLoginPageCommand;
             }
         }
     }

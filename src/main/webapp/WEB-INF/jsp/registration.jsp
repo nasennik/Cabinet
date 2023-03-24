@@ -25,12 +25,14 @@
     body {
         background: url(${pageContext.request.contextPath}/static/formFon.png)
     }
+
     .form-horizontal {
         background: #fff;
         padding-bottom: 40px;
         border-radius: 15px;
         text-align: center;
     }
+
     .form-horizontal .heading {
         display: block;
         font-size: 35px;
@@ -39,11 +41,13 @@
         border-bottom: 1px solid #f0f0f0;
         margin-bottom: 30px;
     }
+
     .form-horizontal .form-group {
         padding: 0 40px;
         margin: 0 0 25px 0;
         position: relative;
     }
+
     .form-horizontal .form-control {
         background: #f0f0f0;
         border: none;
@@ -53,11 +57,13 @@
         height: 40px;
         transition: all 0.3s ease 0s;
     }
+
     .form-horizontal .form-control:focus {
         background: #e0e0e0;
         box-shadow: none;
         outline: 0 none;
     }
+
     .form-horizontal .form-group i {
         position: absolute;
         top: 12px;
@@ -66,9 +72,11 @@
         color: #c8c8c8;
         transition: all 0.5s ease 0s;
     }
+
     .form-horizontal .form-control:focus + i {
         color: #00b4ef;
     }
+
     .form-horizontal .fa-question-circle {
         display: inline-block;
         position: absolute;
@@ -78,9 +86,11 @@
         color: #808080;
         transition: all 0.5s ease 0s;
     }
+
     .form-horizontal .fa-question-circle:hover {
         color: #000;
     }
+
     .form-horizontal .main-checkbox {
         float: left;
         width: 20px;
@@ -91,6 +101,7 @@
         margin: 5px 0 0 5px;
         border: 1px solid #11a3fc;
     }
+
     .form-horizontal .main-checkbox label {
         width: 20px;
         height: 20px;
@@ -99,6 +110,7 @@
         left: 0;
         cursor: pointer;
     }
+
     .form-horizontal .main-checkbox label:after {
         content: "";
         width: 10px;
@@ -114,12 +126,15 @@
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
     }
+
     .form-horizontal .main-checkbox input[type=checkbox] {
         visibility: hidden;
     }
+
     .form-horizontal .main-checkbox input[type=checkbox]:checked + label:after {
         opacity: 1;
     }
+
     .form-horizontal .text {
         float: left;
         margin-left: 7px;
@@ -127,6 +142,7 @@
         padding-top: 5px;
         text-transform: capitalize;
     }
+
     .form-horizontal .btn {
         float: right;
         font-size: 14px;
@@ -138,13 +154,16 @@
         text-transform: capitalize;
         transition: all 0.5s ease 0s;
     }
+
     @media only screen and (max-width: 479px) {
         .form-horizontal .form-group {
             padding: 0 25px;
         }
+
         .form-horizontal .form-group i {
             left: 45px;
         }
+
         .form-horizontal .btn {
             padding: 10px 20px;
         }
@@ -159,26 +178,32 @@
 <div class="container-fluide">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal needs-validation" action="/Cabinet-1.0-SNAPSHOT/controller?command=registrationcmnd" method="post" novalidate>
+            <form class="form-horizontal needs-validation"
+                  action="/Cabinet-1.0-SNAPSHOT/controller?command=registrationcmnd" method="post" novalidate>
                 <span class="heading">Авторизация</span>
                 <div class="form-group">
-                    <input type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation" id="validationServer03" name="login" placeholder="Ваш логин" required>
+                    <input type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation"
+                           id="validationServer03" name="login" placeholder="Ваш логин" required>
                     <div class="invalid-feedback">
                         Логин должен быть минимум 6 символов, логин может содержать латинские буквы и цифры
                     </div>
                 </div>
 
                 <div class="form-group help">
-                    <input type="password" name="password"  pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,100}$" class="form-control needs-validation" id="inputPassword" placeholder="Ваш пароль" required>
+                    <input type="password" name="password"
+                           pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,100}$"
+                           class="form-control needs-validation" id="inputPassword" placeholder="Ваш пароль" required>
                     <div class="invalid-feedback">
                         Пароль должен быть минимум шесть символов, пароль должен содержать буквы цифры и спец символы
                     </div>
                 </div>
                 <div class="form-group help">
-                    <input type="text" name="name" class="form-control needs-validation" placeholder="Ваше имя" required>
+                    <input type="text" name="name" class="form-control needs-validation" placeholder="Ваше имя"
+                           required>
                 </div>
                 <div class="form-group help">
-                    <input type="text" name="year" pattern="[0-9]{3,}" class="form-control needs-validation" placeholder="Ваш год рождения" required>
+                    <input type="text" name="year" pattern="[0-9]{3,}" class="form-control needs-validation"
+                           placeholder="Ваш год рождения" required>
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -186,7 +211,8 @@
                             <button type="submit" class="btn btn-default">Зарегистрироваться</button>
                         </div>
                         <div class="col-md-6">
-                            <a class="btn btn-default" href="/Cabinet-1.0-SNAPSHOT/controller?command=login">На главную</a>
+                            <a class="btn btn-default" href="/Cabinet-1.0-SNAPSHOT/controller?command=login">На
+                                главную</a>
                         </div>
                     </div>
                 </div>
@@ -197,12 +223,12 @@
 </div>
 </body>
 <script>
-    (function() {
+    (function () {
         'use strict';
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             var forms = document.getElementsByClassName('needs-validation');
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
                     if (form.checkValidity() === false) {
                         event.preventDefault();
                         event.stopPropagation();

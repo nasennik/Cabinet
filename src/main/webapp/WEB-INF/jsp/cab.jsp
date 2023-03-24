@@ -49,15 +49,20 @@
                                 <input hidden="" value="${requestScope.person.id}" name="id">
                                 <div class="form-group">
                                     <label for="validationServer03">Логин</label>
-                                    <h2 type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation" id="validationServer03" name="login" placeholder="Ваш логин" required >${requestScope.person.login}</h2>
+                                    <h2 type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation"
+                                        id="validationServer03" name="login" placeholder="Ваш логин"
+                                        required>${requestScope.person.login}</h2>
                                 </div>
                                 <div class="form-group help">
                                     <label for="1">Имя</label>
-                                    <input type="text" id="1" name="name" value="${requestScope.person.name}" class="form-control needs-validation" placeholder="Ваше имя" required>
+                                    <input type="text" id="1" name="name" value="${requestScope.person.name}"
+                                           class="form-control needs-validation" placeholder="Ваше имя" required>
                                 </div>
                                 <div class="form-group help">
                                     <label for="2">Год рождения</label>
-                                    <input type="text" pattern="[0-9]{3,}" value="${requestScope.person.yearOfBirth}" id="2" name="year" class="form-control needs-validation" placeholder="Ваш год рождения" required>
+                                    <input type="text" pattern="[0-9]{3,}" value="${requestScope.person.yearOfBirth}"
+                                           id="2" name="year" class="form-control needs-validation"
+                                           placeholder="Ваш год рождения" required>
                                 </div>
                                 <input hidden="" value="${requestScope.person.login}" name="login">
                                 <input hidden="" value="${requestScope.person.password}" name="password">
@@ -68,7 +73,8 @@
                                             <button type="submit" class="btn btn-default">Обновить</button>
                                         </div>
                                         <div class="col-md-6">
-                                            <a class="btn btn-default" href="/Cabinet-1.0-SNAPSHOT/controller?command=main_page">На главную</a>
+                                            <a class="btn btn-default"
+                                               href="/Cabinet-1.0-SNAPSHOT/controller?command=main_page">На главную</a>
                                         </div>
                                     </div>
                                 </div>

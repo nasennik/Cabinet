@@ -1,27 +1,33 @@
 package com.example.cabinet.service;
 
 import com.example.cabinet.entity.Person;
-import com.example.cabinet.exeption.RepositoryException;
-import com.example.cabinet.exeption.ServiceError;
+import com.example.cabinet.exception.RepositoryException;
+import com.example.cabinet.exception.ServiceError;
 import com.example.cabinet.repository.PersonRepository;
 import com.example.cabinet.security.PasswordHasher;
 import com.example.cabinet.validator.PersonValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
+@Stateless
 public class SimplePersonService implements PersonService {
 
-    private final PersonValidator personValidator;
+    @Inject
+    private PersonValidator personValidator;
 
-    private final PasswordHasher passwordHasher;
+    @Inject
+    private PasswordHasher passwordHasher;
 
-    private final PersonRepository personRepository;
+    @Inject
+    private PersonRepository personRepository;
 
     @Override
     public Optional<Person> login(String login, String password) {
@@ -100,11 +106,11 @@ public class SimplePersonService implements PersonService {
                 id(Integer.parseInt(id)).
                 yearOfBirth(Integer.parseInt(yearOfBirth)).
                 build();
-        try{
+        try {
             personRepository.update(person);
-        }catch (RepositoryException e){
-            log.error("Cannot update person",e);
-            throw new ServiceError("Cannot update person",e);
+        } catch (RepositoryException e) {
+            log.error("Cannot update person", e);
+            throw new ServiceError("Cannot update person", e);
         }
     }
 }
