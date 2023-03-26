@@ -1,5 +1,8 @@
-package com.example.cabinet.command;
+package com.example.cabinet.command.page;
 
+import com.example.cabinet.command.Command;
+import com.example.cabinet.command.CommandRequest;
+import com.example.cabinet.command.CommandResponse;
 import com.example.cabinet.controller.RequestFactory;
 import com.example.cabinet.exception.ServiceError;
 import lombok.Data;

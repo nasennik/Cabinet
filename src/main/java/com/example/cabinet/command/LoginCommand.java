@@ -1,5 +1,6 @@
 package com.example.cabinet.command;
 
+import com.example.cabinet.command.page.PagePath;
 import com.example.cabinet.controller.RequestFactory;
 import com.example.cabinet.entity.Person;
 import com.example.cabinet.exception.ServiceError;

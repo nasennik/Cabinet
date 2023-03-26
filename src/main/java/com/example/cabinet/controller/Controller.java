@@ -34,7 +34,7 @@ public class Controller extends HttpServlet {
         try {
             processRequest(req, resp);
         } catch (ServiceError | IOException | ServletException e) {
-            log.error("Exception in doget method servlet", e);
+            log.error("Exception in doGet method servlet", e);
             throw e;
         }
     }
@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
         try {
             processRequest(req, resp);
         } catch (ServiceError | IOException | ServletException e) {
-            log.error("Service exception in doget method servlet", e);
+            log.error("Service exception in doGet method servlet", e);
             throw e;
         }
     }
@@ -63,7 +63,6 @@ public class Controller extends HttpServlet {
                                      CommandResponse commandResponse) throws IOException, ServletException {
 
         forwardOrRedirectToResponseLocation(req, resp, commandResponse);
-
     }
 
     private void forwardOrRedirectToResponseLocation(HttpServletRequest req, HttpServletResponse resp,

@@ -24,11 +24,4 @@ public interface CommandRequest {
 
     void removeFromSession(String name);
 
-    String getURI();
-
-    //Part getPart(String name) throws ServletException, IOException;
-
-   // ServletContext getServletContext();
-
-   // Collection<Part> getParts() throws ServletException, IOException;
 }

@@ -1,5 +1,6 @@
 package com.example.cabinet.command;
 
+import com.example.cabinet.command.page.PagePath;
 import com.example.cabinet.controller.RequestFactory;
 import com.example.cabinet.exception.ServiceError;
 import com.example.cabinet.service.PersonService;
@@ -21,7 +22,7 @@ public class RegistrationCommand implements Command {
         String name = request.getParameter("name");
         String year = request.getParameter("year");
         if (personService.registration(name, year, login, password)) {
-            return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=main");
+            return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=cab");
         }
         return requestFactory.createForwardResponse(PagePath.REGISTRATION_PAGE.getPath());
     }

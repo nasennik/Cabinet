@@ -6,7 +6,7 @@ import com.example.cabinet.exception.RepositoryException;
 import java.util.List;
 import java.util.Optional;
 
-//@Local
+
 public interface PersonRepository {
     Optional<Person> getById(int id) throws RepositoryException;
 

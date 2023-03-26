@@ -2,9 +2,10 @@ package com.example.cabinet.controller;
 
 
 import com.example.cabinet.command.CommandResponse;
+import lombok.Data;
 
 import java.util.Objects;
-
+@Data
 public class PlainCommandResponse implements CommandResponse {
     private final boolean redirect;
     private final String path;
@@ -34,18 +35,5 @@ public class PlainCommandResponse implements CommandResponse {
         if (o == null || getClass() != o.getClass()) return false;
         PlainCommandResponse that = (PlainCommandResponse) o;
         return redirect == that.redirect && Objects.equals(path, that.path);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(redirect, path);
-    }
-
-    @Override
-    public String toString() {
-        return "PlainCommandResponse{" +
-                "redirect=" + redirect +
-                ", path='" + path + '\'' +
-                '}';
     }
 }

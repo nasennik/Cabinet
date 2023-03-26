@@ -2,9 +2,7 @@ package com.example.cabinet.controller;
 
 import com.example.cabinet.command.CommandRequest;
 import com.example.cabinet.command.CommandResponse;
-import lombok.RequiredArgsConstructor;
 
-import javax.ejb.Stateless;
 import javax.inject.Singleton;
 import javax.servlet.http.HttpServletRequest;
 

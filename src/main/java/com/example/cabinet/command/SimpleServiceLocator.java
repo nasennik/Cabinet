@@ -17,17 +17,12 @@ import java.util.Optional;
 public class SimpleServiceLocator implements ServiceLocator {
     @Inject
     private Cache CACHE;
-
     @Inject
     private InitialContext initialContext;
 
-    public SimpleServiceLocator(){
-        System.out.println("I was created");
-    }
-
     @Override
     public Command getCommand(String commandName) {
-        System.out.println("Command name is " + commandName);
+
       final Optional<Command> commandFromCache = CACHE.getCommand(commandName);
         if (commandName == null) {
             commandName = "login";
@@ -36,10 +31,8 @@ public class SimpleServiceLocator implements ServiceLocator {
             return commandFromCache.get();
         }
 
-
         final Command command = initialContext.lookup(commandName);
-        System.out.println("Command is " + command);
-       // CACHE.addCommand(commandName, command);
+        CACHE.addCommand(commandName, command);
         log.info("Get command in Service Locator from Cache");
         return command;
     }

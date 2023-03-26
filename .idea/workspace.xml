@@ -10,29 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="add Inject annotation">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0ebc5965-20c9-465f-a882-f4ef6204f00a.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0ebc5965-20c9-465f-a882-f4ef6204f00a/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0ebc5965-20c9-465f-a882-f4ef6204f00a/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0ebc5965-20c9-465f-a882-f4ef6204f00a/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0ebc5965-20c9-465f-a882-f4ef6204f00a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/project1.OBh5xA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/project1.OBh5xA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/project1.OBh5xA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f7ef0899-5ec2-430f-b5ca-645dc952e778/storage_v2/_src_/database/project1.OBh5xA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_03_2023_16_57_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_03_2023_16_57__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowCabinetPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowErrorJspPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowErrorJspPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowLoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowRegistrationPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowRegistrationPageCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/RepositoryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exeption/ServiceError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/ServiceError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +42,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -63,19 +59,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TomEE 9.0.711" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 9.0.711" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -173,8 +169,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679667610101</updated>
-      <workItem from="1679667612202" duration="493000" />
+      <workItem from="1679667612202" duration="3853000" />
+      <workItem from="1679860134505" duration="6784000" />
     </task>
+    <task id="LOCAL-00001" summary="add Inject annotation">
+      <created>1679668366553</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679668366553</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,5 +195,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add Inject annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Inject annotation" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.example.cabinet.command;
+package com.example.cabinet.command.page;
 
 
 public enum PagePath {
