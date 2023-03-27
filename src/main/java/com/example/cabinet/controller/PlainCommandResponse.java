@@ -29,11 +29,4 @@ public class PlainCommandResponse implements CommandResponse {
         return path;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PlainCommandResponse that = (PlainCommandResponse) o;
-        return redirect == that.redirect && Objects.equals(path, that.path);
-    }
 }

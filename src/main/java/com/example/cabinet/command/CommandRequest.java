@@ -22,6 +22,4 @@ public interface CommandRequest {
 
     void createSession();
 
-    void removeFromSession(String name);
-
 }

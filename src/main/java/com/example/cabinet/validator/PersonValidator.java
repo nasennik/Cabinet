@@ -13,7 +13,7 @@ public class PersonValidator {
         return password != null;
     }
 
-    public boolean validate(String name, String yearOfBirdth, String password) {
-        return name != null || password != null || yearOfBirdth != null;
+    public boolean validate(String name, String yearOfBirth, String password) {
+        return name != null || password != null || yearOfBirth != null;
     }
 }

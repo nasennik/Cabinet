@@ -3,6 +3,7 @@ package com.example.cabinet.command.page;
 import com.example.cabinet.command.Command;
 import com.example.cabinet.command.CommandRequest;
 import com.example.cabinet.command.CommandResponse;
+import com.example.cabinet.command.CommandURL;
 import com.example.cabinet.controller.RequestFactory;
 import com.example.cabinet.entity.Person;
 import com.example.cabinet.exception.ServiceError;
@@ -24,11 +25,9 @@ public class ShowCabinetPageCommand implements Command {
         if (request.sessionExists() && request.retrieveFromSession("person").isPresent()) {
             Person person = (Person) request.retrieveFromSession("person").get();
             Optional<Person> personOptional = personService.getByLogin(person.getLogin());
-            if (personOptional.isPresent()) {
-                request.addAttributeToJsp("person", personOptional.get());
-            }
+            personOptional.ifPresent(value -> request.addAttributeToJsp("person", value));
             return requestFactory.createForwardResponse(PagePath.CABINET_PAGE.getPath());
         }
-        return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=login");
+        return requestFactory.createRedirectResponse(CommandURL.LOGIN_URL.getURL());
     }
 }

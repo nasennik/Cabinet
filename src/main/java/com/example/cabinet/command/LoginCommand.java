@@ -30,7 +30,7 @@ public class LoginCommand implements Command {
             request.clearSession();
             request.createSession();
             request.addToSession("person", personOptional.get());
-            return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=cab");
+            return requestFactory.createRedirectResponse(CommandURL.CABINET_URL.getURL());
         }
         request.addAttributeToJsp("errorLoginPassMessage", "invalid login or password");
         return requestFactory.createForwardResponse(PagePath.LOGIN_PAGE.getPath());

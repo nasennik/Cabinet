@@ -23,6 +23,6 @@ public class UpdatePersonCommand implements Command {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         personService.update(name, year, id, login, password);
-        return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=cab");
+        return requestFactory.createRedirectResponse(CommandURL.CABINET_URL.getURL());
     }
 }

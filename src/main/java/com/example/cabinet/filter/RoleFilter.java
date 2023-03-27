@@ -1,5 +1,7 @@
 package com.example.cabinet.filter;
 
+import com.example.cabinet.command.CommandURL;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ public class RoleFilter implements Filter {
         if (currentUserHasPermissionForCommand(commandName, req)) {
             chain.doFilter(request, response);
         } else {
-            ((HttpServletResponse) response).sendRedirect("/Cabinet-1.0-SNAPSHOT/controller?command=error");
+            ((HttpServletResponse) response).sendRedirect(CommandURL.ERROR_URL.getURL());
         }
     }
 

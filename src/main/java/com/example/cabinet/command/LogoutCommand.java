@@ -17,6 +17,6 @@ public class LogoutCommand implements Command {
         if (request.sessionExists()) {
             request.clearSession();
         }
-        return requestFactory.createRedirectResponse("/Cabinet-1.0-SNAPSHOT/controller?command=login");
+        return requestFactory.createRedirectResponse(CommandURL.LOGIN_URL.getURL());
     }
 }

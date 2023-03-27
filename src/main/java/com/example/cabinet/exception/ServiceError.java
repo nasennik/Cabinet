@@ -1,8 +1,6 @@
 package com.example.cabinet.exception;
 
 public class ServiceError extends Error{
-    public ServiceError() {
-    }
 
     public ServiceError(String message) {
         super(message);

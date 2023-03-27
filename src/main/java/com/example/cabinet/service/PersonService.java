@@ -11,7 +11,6 @@ public interface PersonService {
 
     boolean registration(String name, String yearOfBirth, String login, String password);
 
-
     Optional<Person> getByLogin(String login);
 
     void update(String name, String yearOfBirth, String id, String login, String password);

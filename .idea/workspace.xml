@@ -9,28 +9,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="add Inject annotation">
+    <list default="true" id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="add command URL">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandURL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowCabinetPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowErrorJspPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowErrorJspPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowLoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/ShowRegistrationPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowRegistrationPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/SimpleServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/SimpleRequestFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/ServiceError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/ServiceError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -171,6 +181,8 @@
       <updated>1679667610101</updated>
       <workItem from="1679667612202" duration="3853000" />
       <workItem from="1679860134505" duration="6784000" />
+      <workItem from="1679869258737" duration="1648000" />
+      <workItem from="1679906590903" duration="3559000" />
     </task>
     <task id="LOCAL-00001" summary="add Inject annotation">
       <created>1679668366553</created>
@@ -179,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679668366553</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add page">
+      <created>1679870857986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679870857986</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +217,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add Inject annotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Inject annotation" />
+    <MESSAGE value="add page" />
+    <MESSAGE value="add command URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="add command URL" />
   </component>
 </project>
