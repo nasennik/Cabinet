@@ -30,6 +30,16 @@ public class SimplePersonService implements PersonService {
     private PersonRepository personRepository;
 
     @Override
+    public List<Person> showAll() {
+        try {
+            return personRepository.getAll();
+        } catch (RepositoryException e) {
+            log.error("Cannot get all people", e);
+            throw new ServiceError("Cannot get all people", e);
+        }
+    }
+
+    @Override
     public Optional<Person> login(String login, String password) {
         if (!personValidator.validate(login, password)) {
             log.error("invalid user login and password, cannot login");
@@ -95,7 +105,7 @@ public class SimplePersonService implements PersonService {
 
     @Override
     public void update(String name, String yearOfBirth, String id, String login, String password) {
-        if (!personValidator.validate(name, yearOfBirth, id)) {
+        if (!personValidator.validate(name, yearOfBirth)) {
             log.error("invalid user login and password, cannot login");
             return;
         }

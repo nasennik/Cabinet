@@ -5,6 +5,7 @@ public enum PagePath {
     LOGIN_PAGE("/WEB-INF/jsp/login.jsp"),
     REGISTRATION_PAGE("/WEB-INF/jsp/registration.jsp"),
     CABINET_PAGE("/WEB-INF/jsp/cab.jsp"),
+    ALL_PAGE("/WEB-INF/jsp/show.jsp"),
     ERROR_JSP_PAGE("/WEB-INF/jsp/error.jsp");
 
     private final String path;

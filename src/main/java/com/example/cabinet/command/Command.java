@@ -1,5 +1,6 @@
 package com.example.cabinet.command;
 
+import com.example.cabinet.exception.RepositoryException;
 import com.example.cabinet.exception.ServiceError;
 
 

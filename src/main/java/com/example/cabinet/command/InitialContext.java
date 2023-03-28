@@ -1,9 +1,6 @@
 package com.example.cabinet.command;
 
-import com.example.cabinet.command.page.ShowCabinetPageCommand;
-import com.example.cabinet.command.page.ShowErrorJspPage;
-import com.example.cabinet.command.page.ShowLoginPageCommand;
-import com.example.cabinet.command.page.ShowRegistrationPageCommand;
+import com.example.cabinet.command.page.*;
 import com.example.cabinet.controller.SimpleRequestFactory;
 import com.example.cabinet.repository.PersonRepository;
 import com.example.cabinet.repository.sessionfactory.HibernateSessionFactoryUtil;
@@ -47,6 +44,8 @@ public class InitialContext {
     private ShowErrorJspPage showErrorJspPage;
     @Inject
     private UpdatePersonCommand updatePersonCommand;
+    @Inject
+    ShowAllPeopleCommand showAllPeopleCommand;
 
     public Command lookup(String commandName) {
 
@@ -74,6 +73,9 @@ public class InitialContext {
             }
             case "updatePerson": {
                 return updatePersonCommand;
+            }
+            case "allPeople":{
+                return showAllPeopleCommand;
             }
             default: {
                 return showLoginPageCommand;

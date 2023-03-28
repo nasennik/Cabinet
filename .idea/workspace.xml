@@ -10,25 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e1b3740-b521-407e-9728-2c2807723260" name="Changes" comment="add command URL">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandURL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowAllPeopleCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/show.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/cabinet/service/SimplePersonServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LoginCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/LogoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/CommandURL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/InitialContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/RegistrationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/UpdatePersonCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/PagePath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowCabinetPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/command/page/ShowLoginPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/PlainCommandResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/controller/WrappingCommandRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/RepositoryException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/ServiceError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/exception/ServiceError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/CharsetFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/filter/RoleFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/validator/PersonValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cabinet/service/SimplePersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -63,6 +61,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2NSq0dSLwWYCCiaHHFzHN7XML3N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -75,6 +76,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -82,7 +85,95 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.cabinet.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TomEE Server.TomEE 9.0.711">
+    <configuration name="SimplePersonServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Cabinet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cabinet.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.cabinet.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.service.SimplePersonServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimplePersonServiceTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Cabinet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cabinet.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.cabinet.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.service.SimplePersonServiceTest" />
+      <option name="METHOD_NAME" value="testLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimplePersonServiceTest.testRegistration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Cabinet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cabinet.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.cabinet.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.service.SimplePersonServiceTest" />
+      <option name="METHOD_NAME" value="testRegistration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimplePersonServiceTest.testRegistrationInvalidLoginPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Cabinet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cabinet.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.cabinet.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.service.SimplePersonServiceTest" />
+      <option name="METHOD_NAME" value="testRegistrationInvalidLoginPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimplePersonServiceTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Cabinet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cabinet.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.cabinet.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cabinet.service.SimplePersonServiceTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TomEE 9.0.711" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 9.0.711" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -170,6 +261,23 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.SimplePersonServiceTest" />
+      <item itemvalue="JUnit.SimplePersonServiceTest.testLogin" />
+      <item itemvalue="JUnit.SimplePersonServiceTest.testRegistration" />
+      <item itemvalue="JUnit.SimplePersonServiceTest.testRegistrationInvalidLoginPassword" />
+      <item itemvalue="JUnit.SimplePersonServiceTest.testUpdate" />
+      <item itemvalue="TomEE Server.TomEE 9.0.711" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SimplePersonServiceTest" />
+        <item itemvalue="JUnit.SimplePersonServiceTest.testRegistration" />
+        <item itemvalue="JUnit.SimplePersonServiceTest.testRegistrationInvalidLoginPassword" />
+        <item itemvalue="JUnit.SimplePersonServiceTest.testUpdate" />
+        <item itemvalue="JUnit.SimplePersonServiceTest.testLogin" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -182,7 +290,8 @@
       <workItem from="1679667612202" duration="3853000" />
       <workItem from="1679860134505" duration="6784000" />
       <workItem from="1679869258737" duration="1648000" />
-      <workItem from="1679906590903" duration="3559000" />
+      <workItem from="1679906590903" duration="9911000" />
+      <workItem from="1679980882793" duration="16453000" />
     </task>
     <task id="LOCAL-00001" summary="add Inject annotation">
       <created>1679668366553</created>
@@ -198,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679870857986</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add command URL">
+      <created>1679916284733</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679916284733</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

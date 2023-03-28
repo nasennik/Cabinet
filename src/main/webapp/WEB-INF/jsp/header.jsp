@@ -34,8 +34,10 @@
                         кабинет</a>
                     <a class="nav-link" href="/Cabinet-1.0-SNAPSHOT/controller?command=task" role="button">Список
                         книг</a>
-                    <a class="nav-link" href="/Cabinet-1.0-SNAPSHOT/controller?command=allDetails" role="button">Мои
+                    <a class="nav-link" href="/Cabinet-1.0-SNAPSHOT/controller?command=allBooks" role="button">Мои
                         книги</a>
+                    <a class="nav-link" href="/Cabinet-1.0-SNAPSHOT/controller?command=allPeople" role="button">Все
+                        читатели</a>
                     <a class="btn btn-primary" href="/Cabinet-1.0-SNAPSHOT/controller?command=logout" role="button">Выйти</a>
                 </c:when>
                 <c:otherwise>

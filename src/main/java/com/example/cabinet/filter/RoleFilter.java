@@ -18,6 +18,7 @@ public class RoleFilter implements Filter {
         final String commandName = req.getParameter("command");
         if (currentUserHasPermissionForCommand(commandName, req)) {
             chain.doFilter(request, response);
+
         } else {
             ((HttpServletResponse) response).sendRedirect(CommandURL.ERROR_URL.getURL());
         }

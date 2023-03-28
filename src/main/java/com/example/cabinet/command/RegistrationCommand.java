@@ -22,7 +22,7 @@ public class RegistrationCommand implements Command {
         String name = request.getParameter("name");
         String year = request.getParameter("year");
         if (personService.registration(name, year, login, password)) {
-            return requestFactory.createRedirectResponse(CommandURL.CABINET_URL.getURL());
+            return requestFactory.createRedirectResponse(CommandURL.LOGIN_URL.getURL());
         }
         return requestFactory.createForwardResponse(PagePath.REGISTRATION_PAGE.getPath());
     }
