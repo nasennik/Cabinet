@@ -13,17 +13,21 @@
     <title>All People</title>
 </head>
 <body>
-<h1>All People</h1>
 <table>
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Читатели</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="person" items="${allPeople}">
         <tr>
-            <td>${person.name}</td>
+            <td>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${person.name}</li>
+                </ul>
+
+            </td>
         </tr>
     </c:forEach>
     </tbody>

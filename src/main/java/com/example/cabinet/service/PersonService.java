@@ -1,16 +1,11 @@
 package com.example.cabinet.service;
-
-
 import com.example.cabinet.entity.Person;
-import com.example.cabinet.exception.RepositoryException;
-
 import java.util.List;
 import java.util.Optional;
 
-
 public interface PersonService {
 
-    List<Person> showAll() throws RepositoryException;
+    List<Person> showAll();
     Optional<Person> login(String login, String password);
 
     boolean registration(String name, String yearOfBirth, String login, String password);
