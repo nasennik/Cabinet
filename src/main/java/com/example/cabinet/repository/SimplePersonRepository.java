@@ -62,8 +62,8 @@ public class SimplePersonRepository implements PersonRepository {
             return (List<Person>) session.createQuery("from Person ").list();
 
         } catch (HibernateException e) {
-            log.error("Cannot get all persons", e);
-            throw new RepositoryException("Cannot get all persons", e);
+            log.error("Cannot get all people", e);
+            throw new RepositoryException("Cannot get all people", e);
         }
     }
 
@@ -76,8 +76,8 @@ public class SimplePersonRepository implements PersonRepository {
 
             return Optional.empty();
         } catch (HibernateException e) {
-            log.error("Cannot get all persons", e);
-            throw new RepositoryException("Cannot get all persons", e);
+            log.error("Cannot get person by login", e);
+            throw new RepositoryException("Cannot get person by login", e);
         }
     }
 }
